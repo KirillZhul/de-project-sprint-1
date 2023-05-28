@@ -87,7 +87,7 @@ CREATE TABLE production.users (
 	CONSTRAINT users_pkey PRIMARY KEY (id)
 );
 
-ывод: Верный тип данных, отсутствие NULL (кроме столбца "name").
+Вывод: Верный тип данных, отсутствие NULL (кроме столбца "name").
 
 6) таблица production.orderstatuslog: 
 
@@ -102,7 +102,6 @@ CREATE TABLE production.orderstatuslog (
 	CONSTRAINT orderstatuslog_pkey PRIMARY KEY (id)
 );
 
-
 -- production.orderstatuslog foreign keys
 
 ALTER TABLE production.orderstatuslog ADD CONSTRAINT orderstatuslog_order_id_fkey FOREIGN KEY (order_id) REFERENCES production.orders(order_id);
@@ -112,6 +111,11 @@ ALTER TABLE production.orderstatuslog ADD CONSTRAINT orderstatuslog_status_id_fk
 
 Общий вывод: в таблицах верные типы данных, отсутствуют NULL, необходимые ограничения в наличии. 
 
-Количество заказов и уникальных заказов в таблице orders равно (10000).
+~~Количество заказов и уникальных заказов в таблице orders равно (10000).~~
+~~количество заказов со статусом "4" (Closed) равно 4991, со статусом "5" (Canceled) равно 5009. ~~
 
-количество заказов со статусом "4" (Closed) равно 4991, со статусом "5" (Canceled) равно 5009. 
+Инструменты применяемые для анализа качества данных в таблицах production:
+- первичные ключи PRIMARY KEY;
+- внешние ключи FOREIGN KEY;
+- ограничения CONSTRAINT;
+- проверка типа данных. 
