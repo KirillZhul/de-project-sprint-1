@@ -1,15 +1,15 @@
-create or replace view analysis.orders as 
-select o.order_id, 
-	osl.dttm as "order_ts", 
+CREATE OR REPLACE view analysis.orders AS 
+SELECT o.order_id, 
+	osl.dttm AS "order_ts", 
 	o.user_id, 
 	o.bonus_payment, 
 	o.payment, 
 	o."cost", 
 	o.bonus_grant,
 	osl.status_id as "status" 
-from production.orders o
-left join production.orderstatuslog osl 
-on osl.order_id = o.order_id 
-and osl.dttm = (select max(osl2.dttm) 
-from production.orderstatuslog osl2 
-where osl2.order_id = o.order_id);
+FROM production.orders o
+LEFT JOIN production.orderstatuslog osl 
+ON osl.order_id = o.order_id 
+AND osl.dttm = (SELECT MAX(osl2.dttm) 
+FROM production.orderstatuslog osl2 
+WHERE osl2.order_id = o.order_id);
