@@ -1,4 +1,4 @@
-INCERT INTO analysis.dm_rfm_segments (user_id, recency, frequency, monetary_value)
+INSERT INTO analysis.dm_rfm_segments (user_id, recency, frequency, monetary_value)
 SELECT u.id, 
        r.recency, 
        f.frequency, 
