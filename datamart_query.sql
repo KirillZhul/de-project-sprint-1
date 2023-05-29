@@ -7,3 +7,8 @@ FROM analysis.users u
 LEFT JOIN analysis.tmp_rfm_recency r ON u.id = r.user_id 
 LEFT JOIN analysis.tmp_rfm_frequency f ON u.id = f.user_id 
 LEFT JOIN analysis.tmp_rfm_monetary_value m ON u.id = m.user_id;
+
+SELECT * 
+FROM analysis.dm_rfm_segments
+ORDER BY user_id
+LIMIT 10;
